@@ -6,8 +6,7 @@
 int main() {
 	Tetris tet;
 	int x{}, y{};
-	while (true) {
-		tet.PrintBoard();
-	}
+	
+	tet.mainloop();
 
 }

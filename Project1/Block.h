@@ -7,8 +7,8 @@
 class Block
 {
 private:
-	short X = 1, Y = 1;
-	short SelectBlock{};
+	short X , Y ;
+	short** SelectBlock{};
 	short blockT1[4][4] = { { 1, 1, 1, 1},
 							{ 1, 2, 2, 1},
 							{ 1, 2, 2, 1},
@@ -48,9 +48,12 @@ private:
 public:
 	
 	Block();
+	~Block();
 	
 	void SetRandomBlock();
-	void SetBlockXY();
-	short* PutBlock();
+	void SetBlockXY(int, int);
+	short GetX();
+	short GetY();
+	short** PutBlock();
 
 };

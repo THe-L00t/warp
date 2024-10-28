@@ -19,6 +19,7 @@ class Tetris
 {
 private:
 	short board[H][W];
+	short backbuffer[H][W];
 	//std::string map[H][W];
 
 public:
@@ -26,10 +27,10 @@ public:
 
 	void BoardInit();
 	void PrintBoard();
-	void display();
-	void set(Block&& block);
+	void Set(auto block);
+	void CopyBuffer();
 	void mainloop();
-	void randomblock();
+	
 
 };
 
