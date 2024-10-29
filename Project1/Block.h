@@ -52,8 +52,13 @@ public:
 	
 	void SetRandomBlock();
 	void SetBlockXY(int, int);
+	void CopyBlock(short bl[4][4]);
+
 	short GetX();
 	short GetY();
 	short** PutBlock();
+	void RotateL();
+	void RotateR();
+
 
 };
