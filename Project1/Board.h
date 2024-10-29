@@ -1,11 +1,13 @@
 #pragma once
 #include <iostream>
 
-#include "Block.h"
-#include "Tetris.h"
+//#include "Block.h"
+//#include "Tetris.h"
 
 #define W		12
 #define H		24
+
+class Block;
 
 enum BoardType {
 	WALL = 0,
@@ -24,7 +26,7 @@ public:
 
 	void BoardInit();
 	void PrintBoard();
-	void Set(auto block);
+	void Set(Block* block);
 	void CopyBuffer();
 
 };

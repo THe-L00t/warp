@@ -1,6 +1,7 @@
 #include "Board.h"
-#include "Tetris.h"
 #include "Block.h"
+//#include "Tetris.h"
+
 
 Board::Board()
 {
@@ -38,7 +39,7 @@ void Board::PrintBoard()
 	}
 }
 
-void Board::Set(auto block)
+void Board::Set(Block* block)
 {
 	int x = block->GetX();
 	int y = block->GetY();

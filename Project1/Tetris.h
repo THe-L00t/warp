@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
 
-#include "Board.h"
-#include "Block.h"
+//#include "Board.h"
+//#include "Block.h"
 
 //#define W		12
 //#define H		24

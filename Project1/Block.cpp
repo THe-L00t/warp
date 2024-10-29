@@ -79,7 +79,7 @@ void Block::SetRandomBlock()	//블럭 랜덤 고르기
 
 void Block::SetBlockXY(int x, int y)	//위치변화
 {
-	Y = 5 + y;
+	Y = 4 + y;
 	X = 0 + x;
 }
 
