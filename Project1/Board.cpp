@@ -1,4 +1,6 @@
 #include "Board.h"
+#include "Tetris.h"
+#include "Block.h"
 
 Board::Board()
 {
@@ -9,10 +11,10 @@ void Board::BoardInit()
 {
 	for (int i = 0; i < H; ++i) {
 		for (int j = 0; j < W; ++j) {
-			if (i == 0 || i == H - 1) board[i][j] = TetrisType::WALL;	//상단 테두리 & 하단 테두리
-			else if (j == 0) board[i][j] = TetrisType::WALL;			//좌측 테두리
-			else if (j == W - 1) board[i][j] = TetrisType::WALL;		//우측 테두리
-			else board[i][j] = TetrisType::SPACE;						//빈 공간
+			if (i == 0 || i == H - 1) board[i][j] = BoardType::WALL;	//상단 테두리 & 하단 테두리
+			else if (j == 0) board[i][j] = BoardType::WALL;			//좌측 테두리
+			else if (j == W - 1) board[i][j] = BoardType::WALL;		//우측 테두리
+			else board[i][j] = BoardType::SPACE;						//빈 공간
 		}
 	}
 }
@@ -21,13 +23,13 @@ void Board::PrintBoard()
 {
 	for (int i = 0; i < H; ++i) {
 		for (int j = 0; j < W; ++j) {
-			if (board[i][j] == TetrisType::WALL) {
+			if (board[i][j] == BoardType::WALL) {
 				std::cout << "▒▒";
 			}
-			else if (board[i][j] == TetrisType::SPACE) {
+			else if (board[i][j] == BoardType::SPACE) {
 				std::cout << "  ";
 			}
-			else if (board[i][j] == TetrisType::BLOCK) {
+			else if (board[i][j] == BoardType::BLOCK) {
 				std::cout << "ㅁ";
 			}
 

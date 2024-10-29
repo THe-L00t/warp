@@ -34,7 +34,7 @@
       <Filter>소스 파일\02Block</Filter>
     </ClCompile>
     <ClCompile Include="Board.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\01Board</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -45,7 +45,7 @@
       <Filter>소스 파일\02Block</Filter>
     </ClInclude>
     <ClInclude Include="Board.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>소스 파일\01Board</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

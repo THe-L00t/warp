@@ -5,7 +5,7 @@
 
 
 Tetris::Tetris() {
-	CopyBuffer();
+	//CopyBuffer();
 }
 
 

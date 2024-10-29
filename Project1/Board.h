@@ -2,8 +2,12 @@
 #include <iostream>
 
 #include "Block.h"
+#include "Tetris.h"
 
-enum TetrisType {
+#define W		12
+#define H		24
+
+enum BoardType {
 	WALL = 0,
 	SPACE = 1,
 	BLOCK = 2
