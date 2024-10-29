@@ -16,7 +16,10 @@
     <Filter Include="소스 파일\00Game">
       <UniqueIdentifier>{24e60823-b166-4344-9cd3-56a85ab087ac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\01Block">
+    <Filter Include="소스 파일\01Board">
+      <UniqueIdentifier>{2bfe78fc-9dff-4864-8d8a-0e2380aa9b76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02Block">
       <UniqueIdentifier>{ad407ac9-8041-47f4-b76d-64ab08daca81}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -28,7 +31,10 @@
       <Filter>소스 파일\00Game</Filter>
     </ClCompile>
     <ClCompile Include="Block.cpp">
-      <Filter>소스 파일\01Block</Filter>
+      <Filter>소스 파일\02Block</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -36,7 +42,10 @@
       <Filter>소스 파일\00Game</Filter>
     </ClInclude>
     <ClInclude Include="Block.h">
-      <Filter>소스 파일\01Block</Filter>
+      <Filter>소스 파일\02Block</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
