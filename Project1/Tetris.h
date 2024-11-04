@@ -19,8 +19,8 @@
 class Tetris
 {
 private:
-	/*short board[H][W];
-	short backbuffer[H][W];*/
+	/*short backBufferBoard[H][W];
+	short board[H][W];*/
 	//std::string map[H][W];
 
 public:
