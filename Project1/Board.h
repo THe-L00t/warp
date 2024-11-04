@@ -18,8 +18,8 @@ enum BoardType {
 class Board
 {
 private:
+	short backBufferBoard[H][W];
 	short board[H][W];
-	short backbuffer[H][W];
 
 public:
 	Board();
@@ -28,6 +28,5 @@ public:
 	void PrintBoard();
 	void Set(Block* block);
 	void CopyBuffer();
-
 };
 
