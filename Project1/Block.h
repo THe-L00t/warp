@@ -5,7 +5,7 @@
 //#include "Tetris.h"
 namespace BlockType
 {
-	inline short blockT0[4][4] = { { 0, 0, 0, 0},
+	inline short blockT1[4][4] = { { 0, 0, 0, 0},
 							{ 0, 2, 2, 0},
 							{ 0, 2, 2, 0},
 							{ 0, 0, 0, 0} };

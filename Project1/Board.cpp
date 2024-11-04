@@ -25,7 +25,10 @@ void Board::BoardInit()
 				wallBoard[i][j] = BoardType::WALL;
 				ruleBorad[i][j] = BoardType::WALL;
 			}		//ÇÏ´Ü
-			else wallBoard[i][j] = BoardType::SPACE;						//ºó °ø°£
+			else { 
+				wallBoard[i][j] = BoardType::SPACE; 
+				ruleBorad[i][j] = BoardType::SPACE;
+			}					//ºó °ø°£
 		}
 	}
 }
