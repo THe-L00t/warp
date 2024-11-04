@@ -1,25 +1,24 @@
 #pragma once
-#include <iostream>
+#include "Common.h"
 
 //#include "Block.h"
 //#include "Tetris.h"
 
-#define W		12
-#define H		24
-
 class Block;
 
 enum BoardType {
-	WALL = 0,
-	SPACE = 1,
-	BLOCK = 2
+	SPACE,
+	WALL,
+	BLOCK
 };
 
 class Board
 {
 private:
+	short backBufferBoard[H][W];
 	short board[H][W];
-	short backbuffer[H][W];
+	short wallBoard[H][W];
+	short ruleBorad[H][W];
 
 public:
 	Board();
@@ -28,6 +27,7 @@ public:
 	void PrintBoard();
 	void Set(Block* block);
 	void CopyBuffer();
+	void MakeBuffer();
 
 };
 

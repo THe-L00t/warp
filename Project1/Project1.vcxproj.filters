@@ -47,5 +47,8 @@
     <ClInclude Include="Board.h">
       <Filter>소스 파일\01Board</Filter>
     </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

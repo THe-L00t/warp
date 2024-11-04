@@ -1,3 +1,5 @@
+#include "Common.h"
+
 #include "Tetris.h"
 #include "Board.h"
 #include "Block.h"
@@ -12,15 +14,16 @@ Tetris::Tetris() {
 void Tetris::mainloop() {
 	Board Base;
 	Block* b = new Block;
+	short speed{ 1 };
 	while (true) {
-		system("cls");
-		Base.PrintBoard();
 		Base.Set(b);
-		//블럭이 내려옴
-		//한 줄을 판단함
-		//처리
-		system("cls");
+		Base.MakeBuffer();
+		Base.CopyBuffer();
 		Base.PrintBoard();
+		gotoxy(0, 0);
+		Sleep(500);
+		b->SetBlockXY(speed++, 0);
+
 	}
 	delete b;
 }
