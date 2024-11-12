@@ -92,3 +92,15 @@ void Board::MakeBuffer()
 		}
 	}
 }
+
+bool Board::IsFloor()
+{
+	for (int i = 1; i < W-1; i++)
+	{
+		if (backBufferBoard[H - 1][i] == BoardType::BLOCK) {
+			return true;
+		}
+
+	}
+	return false;
+}

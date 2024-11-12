@@ -28,6 +28,7 @@ public:
 	void Set(Block* block);
 	void CopyBuffer();
 	void MakeBuffer();
+	bool IsFloor();
 
 };
 
