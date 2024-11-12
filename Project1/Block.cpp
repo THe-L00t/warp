@@ -1,3 +1,5 @@
+#include "Common.h"
+
 #include "Block.h"
 
 std::random_device rd{};
@@ -108,6 +110,27 @@ void Block::RotateR()
 		for (int j = 0; j < 4; ++j) {
 			SelectBlock[i][j] = tempB[j][i];
 		}
+	}
+}
+
+void Block::MoveBlock()
+{
+	int input{0};
+	input = _getch();
+	if (input == 224) {
+		input = _getch();
+	}
+	if (input == UP) {
+		Block::RotateL();
+	}
+	else if (input == DOWN) {
+		//Block::
+	}
+	else if (input == LEFT) {
+		SetBlockXY(0, -1);
+	}
+	else if (input == RIGHT) {
+		SetBlockXY(0, 1);
 	}
 }
 

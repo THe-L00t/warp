@@ -18,9 +18,10 @@ void Tetris::mainloop() {
 	short speed{ 1 };
 	while (true) {
 		Base.Set(b);
+		b->RotateL();
 		Base.MakeBuffer();
 		Base.CopyBuffer();
-
+		//보드에 블럭 저장
 		if (Base.IsFloor()) {
 			delete b;
 			b = next;
@@ -30,6 +31,7 @@ void Tetris::mainloop() {
 		gotoxy(0, 0);
 		Sleep(500);
 		b->SetBlockXY(speed, 0);
+		if (_kbhit()) { b->MoveBlock(); }
 		
 
 	}
