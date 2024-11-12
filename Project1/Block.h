@@ -63,7 +63,7 @@ public:
 	short** PutBlock();
 	void RotateL();
 	void RotateR();
-	bool Isfloor();
+	
 
 
 };

@@ -5,6 +5,8 @@ std::default_random_engine dre{rd()};
 std::uniform_int_distribution RW{ 1,11 };
 std::uniform_int_distribution RB{ 1,7 };
 
+class Board;
+
 Block::Block()
 {
 	SelectBlock = new short* [4];
@@ -109,8 +111,5 @@ void Block::RotateR()
 	}
 }
 
-bool Block::Isfloor()
-{
-	return false;
-}
+
 

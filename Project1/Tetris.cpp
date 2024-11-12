@@ -20,12 +20,12 @@ void Tetris::mainloop() {
 		Base.Set(b);
 		Base.MakeBuffer();
 		Base.CopyBuffer();
+
 		if (Base.IsFloor()) {
+			delete b;
 			b = next;
-			delete next;
 			next = new Block;
 		}
-		
 		Base.PrintBoard();
 		gotoxy(0, 0);
 		Sleep(500);

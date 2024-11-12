@@ -81,9 +81,12 @@ void Board::Set(Block* block)
 	RuleInit();
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
-			if (i + x != 0) {
+			if (B[i][j] == BoardType::BLOCK) {
 				ruleBorad[i + x][j + y] = B[i][j];
 			}
+			/*if (i + x != 0) {
+				ruleBorad[i + x][j + y] = B[i][j];
+			}*/
 		}
 	}
 }
