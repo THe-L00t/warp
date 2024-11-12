@@ -6,6 +6,7 @@
 Board::Board()
 {
 	BoardInit();
+	RuleInit();
 }
 
 void Board::BoardInit()
@@ -29,6 +30,26 @@ void Board::BoardInit()
 				wallBoard[i][j] = BoardType::SPACE; 
 				ruleBorad[i][j] = BoardType::SPACE;
 			}					//빈 공간
+		}
+	}
+}
+
+void Board::RuleInit()
+{
+	for (int i = 0; i < H; ++i) {
+		for (int j = 0; j < W; ++j) {
+			if (j == 0) {
+				ruleBorad[i][j] = BoardType::WALL;
+			}		//좌측 테두리
+			else if (j == W - 1) {
+				ruleBorad[i][j] = BoardType::WALL;
+			}		//우측 테두리
+			else if (i == H - 1) {
+				ruleBorad[i][j] = BoardType::WALL;
+			}		//하단
+			else {
+				ruleBorad[i][j] = BoardType::SPACE;
+			}		//빈 공간
 		}
 	}
 }
@@ -57,6 +78,7 @@ void Board::Set(Block* block)
 	int x = block->GetX();
 	int y = block->GetY();
 	short** B = block->PutBlock();
+	RuleInit();
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
 			if (i + x != 0) {
@@ -95,12 +117,13 @@ void Board::MakeBuffer()
 
 bool Board::IsFloor()
 {
+	bool re{ false };
 	for (int i = 1; i < W-1; i++)
 	{
-		if (backBufferBoard[H - 1][i] == BoardType::BLOCK) {
-			return true;
+		if (ruleBorad[H - 2][i] == BoardType::BLOCK) {
+			re = true;
 		}
 
 	}
-	return false;
+	return re;
 }

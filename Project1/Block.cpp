@@ -57,8 +57,8 @@ void Block::SetRandomBlock()	//블럭 랜덤 고르기
 
 void Block::SetBlockXY(int x, int y)	//위치변화
 {
-	Y = 4 + y;
-	X = 0 + x;
+	Y = Y + y;
+	X = X + x;
 }
 
 void Block::CopyBlock(short bl[4][4])

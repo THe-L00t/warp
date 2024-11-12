@@ -44,7 +44,7 @@ namespace BlockType
 class Block
 {
 private:
-	short X , Y ;
+	short X{ 0 }, Y{ 4 };
 	short** SelectBlock{};
 
 

@@ -24,6 +24,7 @@ public:
 	Board();
 
 	void BoardInit();
+	void RuleInit();
 	void PrintBoard();
 	void Set(Block* block);
 	void CopyBuffer();
