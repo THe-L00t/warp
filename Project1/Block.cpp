@@ -109,3 +109,8 @@ void Block::RotateR()
 	}
 }
 
+bool Block::Isfloor()
+{
+	return false;
+}
+
