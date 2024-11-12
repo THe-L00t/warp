@@ -3,6 +3,7 @@
 #include "Tetris.h"
 #include "Board.h"
 #include "Block.h"
+#include "GameTimer.h"
 
 
 
@@ -12,6 +13,7 @@ Tetris::Tetris() {
 
 
 void Tetris::mainloop() {
+	GameTimer gt;
 	Board Base;
 	Block* b = new Block;
 	Block* next = new Block;
@@ -29,9 +31,10 @@ void Tetris::mainloop() {
 		}
 		Base.PrintBoard();
 		gotoxy(0, 0);
-		Sleep(500);
 		b->SetBlockXY(speed, 0);
 		if (_kbhit()) { b->MoveBlock(); }
+		//gt.Update();
+		Sleep(500);
 		
 
 	}

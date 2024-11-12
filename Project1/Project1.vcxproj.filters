@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\02Block">
       <UniqueIdentifier>{ad407ac9-8041-47f4-b76d-64ab08daca81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03GameTimer">
+      <UniqueIdentifier>{9bb0ae05-6d80-4d70-8b45-b674c1471484}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="warp.cpp">
@@ -36,6 +39,9 @@
     <ClCompile Include="Board.cpp">
       <Filter>소스 파일\01Board</Filter>
     </ClCompile>
+    <ClCompile Include="GameTimer.cpp">
+      <Filter>소스 파일\03GameTimer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tetris.h">
@@ -49,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="Common.h">
       <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimer.h">
+      <Filter>소스 파일\03GameTimer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
