@@ -94,7 +94,9 @@ short** Block::PutBlock()
 void Block::RotateL()
 {
 	short tempB[4][4]{};
-	CopyBlock(tempB);
+	for (int i = 0; i < 4; ++i) {
+		memcpy(tempB[i], SelectBlock[i], 4 * sizeof(short));
+	}
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
 			SelectBlock[i][j] = tempB[j][3 - i];
@@ -105,7 +107,9 @@ void Block::RotateL()
 void Block::RotateR()
 {
 	short tempB[4][4]{};
-	CopyBlock(tempB);
+	for (int i = 0; i < 4; ++i) {
+		memcpy(tempB[i], SelectBlock[i], 4 * sizeof(short));
+	}
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
 			SelectBlock[i][j] = tempB[j][i];

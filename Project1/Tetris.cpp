@@ -18,7 +18,7 @@ void Tetris::mainloop() {
 	short speed{ 1 };
 	while (true) {
 		Base.Set(b);
-		b->RotateL();
+		//b->RotateL();
 		Base.MakeBuffer();
 		Base.CopyBuffer();
 		//보드에 블럭 저장
