@@ -18,7 +18,8 @@ private:
 	short backBufferBoard[H][W];
 	short board[H][W];
 	short wallBoard[H][W];
-	short ruleBorad[H][W];
+	short ruleBoard[H][W];
+	short rememBoard[H][W];
 
 public:
 	Board();

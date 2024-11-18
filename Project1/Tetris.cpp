@@ -17,7 +17,7 @@ void Tetris::mainloop() {
 	Board Base;
 	Block* b = new Block;
 	Block* next = new Block;
-	float speed{ 1 };
+	float speed{ 2 };
 	while (true) {
 		Base.Set(b);
 		//b->RotateL();
@@ -25,6 +25,7 @@ void Tetris::mainloop() {
 		Base.CopyBuffer();
 		//보드에 블럭 저장
 		if (Base.IsFloor()) {
+			Base.RememberBlock(b);
 			delete b;
 			b = next;
 			next = new Block;

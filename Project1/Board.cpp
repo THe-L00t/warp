@@ -16,19 +16,20 @@ void Board::BoardInit()
 			if (i == 0) wallBoard[i][j] = BoardType::WALL;	//상단 테두리
 			else if (j == 0) { 
 				wallBoard[i][j] = BoardType::WALL; 
-				ruleBorad[i][j] = BoardType::WALL;
+				ruleBoard[i][j] = BoardType::WALL;
 			}		//좌측 테두리
 			else if (j == W - 1) {
 				wallBoard[i][j] = BoardType::WALL;
-				ruleBorad[i][j] = BoardType::WALL;
+				ruleBoard[i][j] = BoardType::WALL;
 			}		//우측 테두리
 			else if (i == H - 1) {
 				wallBoard[i][j] = BoardType::WALL;
-				ruleBorad[i][j] = BoardType::WALL;
+				ruleBoard[i][j] = BoardType::WALL;
 			}		//하단
 			else { 
 				wallBoard[i][j] = BoardType::SPACE; 
-				ruleBorad[i][j] = BoardType::SPACE;
+				ruleBoard[i][j] = BoardType::SPACE;
+				rememBoard[i][j] = BoardType::SPACE;
 			}					//빈 공간
 		}
 	}
@@ -39,16 +40,16 @@ void Board::RuleInit()
 	for (int i = 0; i < H; ++i) {
 		for (int j = 0; j < W; ++j) {
 			if (j == 0) {
-				ruleBorad[i][j] = BoardType::WALL;
+				ruleBoard[i][j] = BoardType::WALL;
 			}		//좌측 테두리
 			else if (j == W - 1) {
-				ruleBorad[i][j] = BoardType::WALL;
+				ruleBoard[i][j] = BoardType::WALL;
 			}		//우측 테두리
 			else if (i == H - 1) {
-				ruleBorad[i][j] = BoardType::WALL;
+				ruleBoard[i][j] = BoardType::WALL;
 			}		//하단
 			else {
-				ruleBorad[i][j] = BoardType::SPACE;
+				ruleBoard[i][j] = BoardType::SPACE;
 			}		//빈 공간
 		}
 	}
@@ -82,7 +83,7 @@ void Board::Set(Block* block)
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
 			if (B[i][j] == BoardType::BLOCK) {
-				ruleBorad[i + x][j + y] = B[i][j];
+				ruleBoard[i + x][j + y] = B[i][j];
 			}
 			/*if (i + x != 0) {
 				ruleBorad[i + x][j + y] = B[i][j];
@@ -95,9 +96,6 @@ void Board::CopyBuffer()
 {
 	for (int i = 0; i < H; ++i) {
 		memcpy(board[i], backBufferBoard[i], sizeof(short) * W);
-		/*for (int j = 0; j < W; ++j) {
-			board[i][j] = backBufferBoard[i][j];
-		}*/
 	}
 }
 
@@ -114,9 +112,19 @@ void Board::MakeBuffer()
 	{
 		for (int j = 1; j < W-1; j++)
 		{
-			backBufferBoard[i][j] = ruleBorad[i][j];
+			backBufferBoard[i][j] = ruleBoard[i][j];
 		}
 	}
+	for (int i = 0; i < H; i++)
+	{
+		for (int j = 0; j < W; j++)
+		{
+			if (rememBoard[i][j] == BoardType::BLOCK) {
+				backBufferBoard[i][j] = rememBoard[i][j];
+			}
+		}
+	}
+
 }
 
 bool Board::IsFloor()
@@ -124,7 +132,7 @@ bool Board::IsFloor()
 	bool re{ false };
 	for (int i = 1; i < W-1; i++)
 	{
-		if (ruleBorad[H - 2][i] == BoardType::BLOCK) {
+		if (ruleBoard[H - 2][i] == BoardType::BLOCK) {
 			re = true;
 		}
 
@@ -134,5 +142,14 @@ bool Board::IsFloor()
 
 void Board::RememberBlock(Block* block)
 {
-	//ruleBorad
+	
+	for (int i = 0; i < H; i++)
+	{
+		for (int j = 0; j < W; j++)
+		{
+			if (board[i][j] == BoardType::BLOCK) {
+				rememBoard[i][j] = BoardType::BLOCK;
+			}
+		}
+	}
 }
