@@ -59,7 +59,7 @@ void Block::SetRandomBlock()	//블럭 랜덤 고르기
 	}
 }
 
-void Block::SetBlockXY(int x, int y)	//위치변화
+void Block::SetBlockXY(float x, float y)	//위치변화
 {
 	Y = Y + y;
 	X = X + x;

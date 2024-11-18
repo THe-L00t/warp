@@ -44,7 +44,7 @@ namespace BlockType
 class Block
 {
 private:
-	short X{ 0 }, Y{ 4 };
+	float X{ 0 }, Y{ 4 };
 	short** SelectBlock{};
 
 
@@ -55,7 +55,7 @@ public:
 	~Block();
 	
 	void SetRandomBlock();
-	void SetBlockXY(int, int);
+	void SetBlockXY(float, float);
 	void CopyBlock(short bl[4][4]);
 
 	short GetX();
