@@ -15,5 +15,5 @@ private:
 	std::chrono::time_point<std::chrono::high_resolution_clock> prevTime;
 public:
 	float timer = 0;
-
+	float elapsedTime = 0;
 };

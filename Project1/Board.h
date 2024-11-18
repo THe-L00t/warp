@@ -30,6 +30,7 @@ public:
 	void CopyBuffer();
 	void MakeBuffer();
 	bool IsFloor();
+	void RememberBlock(Block* block);
 
 };
 

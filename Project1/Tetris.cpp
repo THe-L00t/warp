@@ -17,7 +17,7 @@ void Tetris::mainloop() {
 	Board Base;
 	Block* b = new Block;
 	Block* next = new Block;
-	float speed{ 0.05 };
+	float speed{ 1 };
 	while (true) {
 		Base.Set(b);
 		//b->RotateL();
@@ -31,10 +31,10 @@ void Tetris::mainloop() {
 		}
 		Base.PrintBoard();
 		gotoxy(0, 0);
-		b->SetBlockXY(speed, 0);
+		b->SetBlockXY(speed * gt.elapsedTime, 0);
 		if (_kbhit()) { b->MoveBlock(); }
 		gt.Update();
-		std::this_thread::sleep_for(std::chrono::milliseconds(16));
+		//std::this_thread::sleep_for(std::chrono::milliseconds(16));
 		
 
 	}

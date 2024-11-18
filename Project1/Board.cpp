@@ -94,9 +94,10 @@ void Board::Set(Block* block)
 void Board::CopyBuffer()
 {
 	for (int i = 0; i < H; ++i) {
-		for (int j = 0; j < W; ++j) {
+		memcpy(board[i], backBufferBoard[i], sizeof(short) * W);
+		/*for (int j = 0; j < W; ++j) {
 			board[i][j] = backBufferBoard[i][j];
-		}
+		}*/
 	}
 }
 
@@ -129,4 +130,9 @@ bool Board::IsFloor()
 
 	}
 	return re;
+}
+
+void Board::RememberBlock(Block* block)
+{
+	//ruleBorad
 }
