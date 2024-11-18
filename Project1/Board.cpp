@@ -74,20 +74,32 @@ void Board::PrintBoard()
 	}
 }
 
+void Board::Remove(Block* block)
+{
+	int x = block->GetX();
+	int y = block->GetY();
+	short** B = block->PutBlock();
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 4; ++j) {
+			if (B[i][j] == BoardType::BLOCK) {
+				ruleBoard[i + x][j + y] = BoardType::SPACE;
+			}
+		}
+	}
+}
+
 void Board::Set(Block* block)
 {
 	int x = block->GetX();
 	int y = block->GetY();
 	short** B = block->PutBlock();
-	RuleInit();
+	//RuleInit();
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
 			if (B[i][j] == BoardType::BLOCK) {
 				ruleBoard[i + x][j + y] = B[i][j];
 			}
-			/*if (i + x != 0) {
-				ruleBorad[i + x][j + y] = B[i][j];
-			}*/
+			
 		}
 	}
 }
@@ -127,11 +139,15 @@ void Board::MakeBuffer()
 
 }
 
-bool Board::IsFloor()
+bool Board::IsCollision(Block* block)
 {
 	bool re{ false };
-	for (int i = 1; i < W-1; i++)
+	for (int i = 0; i < W; ++i)
 	{
+		for (int i = 0; i < H; ++i)
+		{
+			//if(
+		}
 		if (ruleBoard[H - 2][i] == BoardType::BLOCK) {
 			re = true;
 		}
@@ -148,7 +164,7 @@ void Board::RememberBlock(Block* block)
 		for (int j = 0; j < W; j++)
 		{
 			if (board[i][j] == BoardType::BLOCK) {
-				rememBoard[i][j] = BoardType::BLOCK;
+				ruleBoard[i][j] = BoardType::BLOCK;
 			}
 		}
 	}

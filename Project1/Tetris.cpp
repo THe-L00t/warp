@@ -17,14 +17,16 @@ void Tetris::mainloop() {
 	Board Base;
 	Block* b = new Block;
 	Block* next = new Block;
-	float speed{ 2 };
+	float speed{ 3 };
 	while (true) {
+		Base.Remove(b);
+		b->SetBlockXY(speed * gt.elapsedTime, 0);
 		Base.Set(b);
 		//b->RotateL();
 		Base.MakeBuffer();
 		Base.CopyBuffer();
 		//보드에 블럭 저장
-		if (Base.IsFloor()) {
+		if (Base.IsCollision(b)) {
 			Base.RememberBlock(b);
 			delete b;
 			b = next;
@@ -32,10 +34,12 @@ void Tetris::mainloop() {
 		}
 		Base.PrintBoard();
 		gotoxy(0, 0);
-		b->SetBlockXY(speed * gt.elapsedTime, 0);
+		Base.Remove(b);
 		if (_kbhit()) { b->MoveBlock(); }
+		//Base.Set(b);
 		gt.Update();
 		//std::this_thread::sleep_for(std::chrono::milliseconds(16));
+		
 		
 
 	}

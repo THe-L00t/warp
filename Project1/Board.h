@@ -27,10 +27,11 @@ public:
 	void BoardInit();
 	void RuleInit();
 	void PrintBoard();
+	void Remove(Block* block);
 	void Set(Block* block);
 	void CopyBuffer();
 	void MakeBuffer();
-	bool IsFloor();
+	bool IsCollision(Block* block);
 	void RememberBlock(Block* block);
 
 };
