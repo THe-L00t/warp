@@ -112,33 +112,12 @@ void Block::RotateR()
 	}
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
-			SelectBlock[i][j] = tempB[j][i];
+			SelectBlock[i][3 - j] = tempB[j][i];
 		}
 	}
 }
 
-void Block::MoveBlock()
-{
-	int input{0};
-	input = _getch();
-	if (input == 224) {
-		input = _getch();
-	}
-	if (input == UP) {
-		Block::RotateL();
-	}
-	else if (input == DOWN) {
-		//Block::
-	}
-	else if (input == LEFT) {
-		if(not lwc)
-			SetBlockXY(X, Y-1);
-	}
-	else if (input == RIGHT) {
-		if(not rwc)
-			SetBlockXY(X, Y+1);
-	}
-}
+
 
 
 

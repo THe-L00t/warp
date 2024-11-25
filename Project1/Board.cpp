@@ -142,36 +142,53 @@ void Board::MakeBuffer()
 
 bool Board::IsCollision(Block* block)
 {
-	bool re{ false };
-	for (int i = 0; i < H; ++i)
-	{
-		for (int j = 1; j < W; ++j)
-		{
-			if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i+1][j] == BoardType::WALL)
-				re = true;
-			else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j + 1] == BoardType::WALL)
-			{
-				rwc = true;
+	int x = block->GetX();
+	int y = block->GetY();
+	short** B = block->PutBlock();
+	//RuleInit();
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 4; ++j) {
+			if (B[i][j] != BoardType::BLOCK) {
+				continue;
 			}
-			else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j + 1] != BoardType::WALL)
-			{
-				rwc = false;
+			if (ruleBoard[i + x][j + y] == BoardType::BLOCK ||
+				ruleBoard[i + x][j + y] == BoardType::WALL) {
+				return true;
 			}
-			else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j - 1] == BoardType::WALL)
-			{
-				lwc = true;
-			}
-			else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j - 1] != BoardType::WALL)
-			{
-				lwc = false;
-			}
-		}
-		/*if (ruleBoard[H - 2][i] == BoardType::BLOCK) {
-			re = true;
-		}*/
 
+		}
 	}
-	return re;
+	return false;
+	//bool re{ false };
+	//for (int i = 0; i < H; ++i)
+	//{
+	//	for (int j = 1; j < W; ++j)
+	//	{
+	//		if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i+1][j] == BoardType::WALL)
+	//			re = true;
+	//		else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j + 1] == BoardType::WALL)
+	//		{
+	//			rwc = true;
+	//		}
+	//		else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j + 1] != BoardType::WALL)
+	//		{
+	//			rwc = false;
+	//		}
+	//		else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j - 1] == BoardType::WALL)
+	//		{
+	//			lwc = true;
+	//		}
+	//		else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j - 1] != BoardType::WALL)
+	//		{
+	//			lwc = false;
+	//		}
+	//	}
+	//	/*if (ruleBoard[H - 2][i] == BoardType::BLOCK) {
+	//		re = true;
+	//	}*/
+
+	//}
+	//return re;
 }
 
 void Board::RememberBlock(Block* block)

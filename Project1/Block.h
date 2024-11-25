@@ -63,7 +63,6 @@ public:
 	short** PutBlock();
 	void RotateL();
 	void RotateR();
-	void MoveBlock();
 
 
 };

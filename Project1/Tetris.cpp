@@ -17,19 +17,52 @@ void Tetris::mainloop() {
 	Board Base;
 	Block* b = new Block;
 	float speed{ 3 };
-
+	float prevX, prevY, x, y;
 	while (true) {
+		prevX = b->GetX();
+		prevY = b->GetY();
+		x = prevX;
+		y = prevY;
+
 		gt.Update();
 		Base.Remove(b);
-		if (_kbhit()) { b->MoveBlock(); }
+		if (_kbhit()) { 
+			int input{ 0 };
+			input = _getch();
+			if (input == 224) {
+				input = _getch();
+			}
+			if (input == UP) {
+				b->RotateL();
+				if (Base.IsCollision(b)) {
+					//b->SetBlockXY(prevX, prevY);
+					b->RotateR();
+				}
+			}
+			else if (input == DOWN) {
+				x += 1;
+			}
+			else if (input == LEFT) {
+				y -= 1;
+				
+			}
+			else if (input == RIGHT) {
+				y += 1;
+			}
+			b->SetBlockXY(x, y);
+			if (Base.IsCollision(b)) {
+				b->SetBlockXY(prevX, prevY);
+			}
+		}
 		b->SetBlockXY(b->GetX() + speed * gt.elapsedTime, b->GetY());
-		Base.Set(b);
 		if (Base.IsCollision(b)) {
 			//Base.RememberBlock(b);
+			b->SetBlockXY(prevX, prevY);
+			Base.Set(b);
 			delete b;
 			b = new Block;
-			std::cout << "b" << std::endl;
 		}
+		Base.Set(b);
 		//b->RotateL();
 		Base.MakeBuffer();
 		Base.CopyBuffer();
