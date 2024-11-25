@@ -12,6 +12,9 @@
 #define W		12
 #define H		24
 
+inline bool lwc{ false };
+inline bool rwc{ false };
+
 inline void gotoxy(int x, int y)
 {
     COORD Cur;

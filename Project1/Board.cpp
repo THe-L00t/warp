@@ -9,6 +9,7 @@ Board::Board()
 	RuleInit();
 }
 
+
 void Board::BoardInit()
 {
 	for (int i = 0; i < H; ++i) {
@@ -142,15 +143,32 @@ void Board::MakeBuffer()
 bool Board::IsCollision(Block* block)
 {
 	bool re{ false };
-	for (int i = 0; i < W; ++i)
+	for (int i = 0; i < H; ++i)
 	{
-		for (int i = 0; i < H; ++i)
+		for (int j = 1; j < W; ++j)
 		{
-			//if(
+			if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i+1][j] == BoardType::WALL)
+				re = true;
+			else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j + 1] == BoardType::WALL)
+			{
+				rwc = true;
+			}
+			else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j + 1] != BoardType::WALL)
+			{
+				rwc = false;
+			}
+			else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j - 1] == BoardType::WALL)
+			{
+				lwc = true;
+			}
+			else if (ruleBoard[i][j] == BoardType::BLOCK && wallBoard[i][j - 1] != BoardType::WALL)
+			{
+				lwc = false;
+			}
 		}
-		if (ruleBoard[H - 2][i] == BoardType::BLOCK) {
+		/*if (ruleBoard[H - 2][i] == BoardType::BLOCK) {
 			re = true;
-		}
+		}*/
 
 	}
 	return re;

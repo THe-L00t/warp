@@ -16,7 +16,7 @@ Block::Block()
 		SelectBlock[i] = new short[4];
 	}
 	SetRandomBlock();
-	SetBlockXY(0,0);
+	SetBlockXY(0,4);
 }
 
 Block::~Block()
@@ -61,8 +61,8 @@ void Block::SetRandomBlock()	//블럭 랜덤 고르기
 
 void Block::SetBlockXY(float x, float y)	//위치변화
 {
-	Y = Y + y;
-	X = X + x;
+	Y = y;
+	X = x;
 }
 
 void Block::CopyBlock(short bl[4][4])
@@ -76,12 +76,12 @@ void Block::CopyBlock(short bl[4][4])
 	}
 }
 
-short Block::GetX()
+float Block::GetX()
 {
 	return this->X;
 }
 
-short Block::GetY()
+float Block::GetY()
 {
 	return this->Y;
 }
@@ -131,10 +131,12 @@ void Block::MoveBlock()
 		//Block::
 	}
 	else if (input == LEFT) {
-		SetBlockXY(0, -1);
+		if(not lwc)
+			SetBlockXY(X, Y-1);
 	}
 	else if (input == RIGHT) {
-		SetBlockXY(0, 1);
+		if(not rwc)
+			SetBlockXY(X, Y+1);
 	}
 }
 

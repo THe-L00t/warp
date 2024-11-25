@@ -58,8 +58,8 @@ public:
 	void SetBlockXY(float, float);
 	void CopyBlock(short bl[4][4]);
 
-	short GetX();
-	short GetY();
+	float GetX();
+	float GetY();
 	short** PutBlock();
 	void RotateL();
 	void RotateR();
