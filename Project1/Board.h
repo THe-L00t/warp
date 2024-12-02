@@ -33,8 +33,7 @@ public:
 	void MakeBuffer();
 	bool IsCollision(Block* block);
 	void RememberBlock(Block* block);
-	bool FullBlock();
-	void DownBlock();
+	void FullBlock();
 
 
 };

@@ -204,27 +204,23 @@ void Board::RememberBlock(Block* block)
 	}
 }
 
-bool Board::FullBlock()
+void Board::FullBlock()
 {
-	int cnt{ 0 };
 	for (int i = 0; i < H; i++)
 	{
-		for (int j = 0; j < W; j++)
+		for (int j = 1; j < W-1; j++)
 		{
-			if(ruleBoard[i][j] == BoardType::BLOCK) cnt += 1;
-			if (cnt == W - 2) return true;
+			if (ruleBoard[i][j] != BoardType::BLOCK) break;
+			
+			if (j == W - 2) {
+				for (int k = i; k >= 0; --k) {
+					memcpy(ruleBoard[k], ruleBoard[k-1], sizeof(short) * W);
+					break;
+				}
+			}
 		}
-		cnt = 0;
 	}
-	return false;
 }
 
-void Board::DownBlock()
-{
-	short temp[H][W]{};
-	for (int i = 0; i < H; ++i) {
-		memcpy(temp[i], ruleBoard[i], sizeof(short) * W);
-		memcpy(ruleBoard[i], temp[i-1], sizeof(short) * W);
-	}
-}
+
 

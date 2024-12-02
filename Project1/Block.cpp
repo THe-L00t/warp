@@ -29,7 +29,7 @@ Block::~Block()
 
 void Block::SetRandomBlock()	//블럭 랜덤 고르기
 {
-	int R = RB(rd);
+	int R = 1;//RB(rd);
 	if (R == 1) {
 		CopyBlock(BlockType::blockT1);
 	}

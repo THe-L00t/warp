@@ -62,9 +62,7 @@ void Tetris::mainloop() {
 			delete b;
 			b = new Block;
 		}
-		if (Base.FullBlock()) {
-			Base.DownBlock();
-		}
+		Base.FullBlock();
 		Base.Set(b);
 		//b->RotateL();
 		Base.MakeBuffer();
