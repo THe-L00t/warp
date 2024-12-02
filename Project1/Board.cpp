@@ -193,7 +193,6 @@ bool Board::IsCollision(Block* block)
 
 void Board::RememberBlock(Block* block)
 {
-	
 	for (int i = 0; i < H; i++)
 	{
 		for (int j = 0; j < W; j++)
@@ -204,3 +203,28 @@ void Board::RememberBlock(Block* block)
 		}
 	}
 }
+
+bool Board::FullBlock()
+{
+	int cnt{ 0 };
+	for (int i = 0; i < H; i++)
+	{
+		for (int j = 0; j < W; j++)
+		{
+			if(ruleBoard[i][j] == BoardType::BLOCK) cnt += 1;
+			if (cnt == W - 2) return true;
+		}
+		cnt = 0;
+	}
+	return false;
+}
+
+void Board::DownBlock()
+{
+	short temp[H][W]{};
+	for (int i = 0; i < H; ++i) {
+		memcpy(temp[i], ruleBoard[i], sizeof(short) * W);
+		memcpy(ruleBoard[i], temp[i-1], sizeof(short) * W);
+	}
+}
+

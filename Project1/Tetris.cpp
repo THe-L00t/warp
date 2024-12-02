@@ -62,6 +62,9 @@ void Tetris::mainloop() {
 			delete b;
 			b = new Block;
 		}
+		if (Base.FullBlock()) {
+			Base.DownBlock();
+		}
 		Base.Set(b);
 		//b->RotateL();
 		Base.MakeBuffer();
@@ -69,9 +72,7 @@ void Tetris::mainloop() {
 		//보드에 블럭 저장
 		Base.PrintBoard();
 		gotoxy(0, 0);
-		//Base.Remove(b);
-		//Base.Set(b);
-		//std::this_thread::sleep_for(std::chrono::milliseconds(16));
+		
 		
 		
 

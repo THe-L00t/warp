@@ -33,6 +33,28 @@ public:
 	void MakeBuffer();
 	bool IsCollision(Block* block);
 	void RememberBlock(Block* block);
+	bool FullBlock();
+	void DownBlock();
+
 
 };
 
+//캡슐화 가이드 라인
+
+//class
+// 상위 클래스 상속을 통해 의존성 없애기 
+/*
+public:
+	생성자()
+	생성자(i)
+	Get
+	Set
+	Print
+	Remember
+	IsCollision
+
+
+private:
+	board
+ 
+ */
